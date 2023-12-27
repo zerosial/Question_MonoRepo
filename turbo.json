@@ -6,11 +6,13 @@
       "dotEnv": [".env"]
     },
     "build": {
+      "cache": false,
       "dependsOn": ["^build"],
       "outputs": ["public/**", "vercel/**"],
       "dotEnv": [".env"]
     },
     "start": {
+      "cache": false,
       "dependsOn": ["^build"]
     },
     "test": {
