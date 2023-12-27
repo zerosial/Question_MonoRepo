@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://question-monorepo.vercel.app",
+        target: "http://localhost:3000",
         changeOrigin: true,
       },
     },

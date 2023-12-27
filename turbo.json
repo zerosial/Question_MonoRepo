@@ -6,13 +6,11 @@
       "dotEnv": [".env"]
     },
     "build": {
-      "cache": false,
       "dependsOn": ["^build"],
       "outputs": ["dist/**"],
       "dotEnv": [".env"]
     },
     "start": {
-      "cache": false,
       "dependsOn": ["^build"]
     },
     "test": {
