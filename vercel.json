@@ -3,6 +3,10 @@
   "github": {
     "enabled": true
   },
+  "builds": [
+    { "src": "/apps/client/*", "use": "@now/static" },
+    { "src": "/apps/api/*", "use": "@vercel/node" }
+  ],
   "routes": [
     {
       "src": "/(.*)",
