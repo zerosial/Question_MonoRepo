@@ -7,7 +7,7 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["public/**"],
+      "outputs": ["dist/**"],
       "dotEnv": [".env"]
     },
     "start": {
