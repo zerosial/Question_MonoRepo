@@ -11,7 +11,7 @@
     {
       "src": "/(.*)",
       "dest": "/apps/api/src/main.ts",
-      "methods": ["GET"]
+      "methods": ["GET", "POST", "DELETE", "PUT"]
     }
   ]
 }
