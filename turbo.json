@@ -7,7 +7,7 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", "vercel/**"],
+      "outputs": ["dist/**", "vercel/dist/**"],
       "dotEnv": [".env"]
     },
     "start": {
