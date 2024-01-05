@@ -1,122 +1,73 @@
-# 소개
+<p align="center">
+  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
+</p>
 
-Nest.JS 학습을 위한 Repo (GraphQL , Rest API, Prisma, PostgreSQL, Login (w passport, jwt etc)
+[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
+[circleci-url]: https://circleci.com/gh/nestjs/nest
 
-## Features
+  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
+    <p align="center">
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
+<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
+<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
+<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
+<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
+<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
+<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
+  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
+    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
+  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
+</p>
+  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
+  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
-- GraphQL로 기본 설계된 코드
-- Rest API 추가 (Controller.ts)
-- 데이터베이스 모델링, 마이그레이션 및 타입 안전한 접근을 위한 [Prisma](https://www.prisma.io/)  (Postgres, MySQL & MongoDB 지원)
-- 🔐 JWT Auth w/ [passport-jwt](https://github.com/mikenicholson/passport-jwt)
-- REST API Swagger (전체 새로 추가) w/ [Swagger](https://swagger.io/)
-- 필요에 따른 코드 변경 및 수정
+## Description
 
-## Prisma 설정
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-### 1. 의존성 설치
-
-Nest 애플리케이션을 위한 의존성을 설치하세요.
-
-```bash
-# npm
-npm install
-# yarn
-yarn install
-```
-
-### 2. Docker를 이용한 PostgreSQL
-선택적 
-
-Docker를 이용하여 개발 환경용 PostgreSQL을 설정합니다. [.env.example](./.env.example)을 복사하여 `.env`로 이름을 바꿉니다 - `cp .env.example .env` - 이는 `POSTGRES_USER`, `POSTGRES_PASSWORD`, `POSTGRES_DB`와 같은 PostgreSQL에 필요한 환경 변수를 설정합니다. 변수를 원하는 대로 업데이트하고 강력한 비밀번호를 선택하세요.
-
-PostgreSQL 데이터베이스를 시작합니다.
+## Installation
 
 ```bash
-docker-compose -f docker-compose.db.yml up -d
-# 또는
-npm run docker:db
+$ npm install
 ```
 
-### 3. Prisma Migrate
-
-[Prisma Migrate](https://github.com/prisma/prisma2/tree/master/docs/prisma-migrate)는 데이터베이스의 스키마와 마이그레이션을 관리하는 데 사용됩니다. Prisma 데이터 소스는 PostgreSQL 데이터베이스에 연결하기 위한 환경 변수 `DATABASE_URL`을 필요로 합니다. Prisma는 루트의 [.env](./.env) 파일에서 `DATABASE_URL`을 읽습니다.
-
-개발 환경에서 Prisma Migrate를 사용하여
-
-1. `migration.sql` 파일 생성
-2. 데이터베이스 스키마 업데이트
-3. Prisma 클라이언트 생성
+## Running the app
 
 ```bash
-npx prisma migrate dev
-# 또는
-npm run migrate:dev
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
 ```
 
-`migration.sql` 파일을 사용자 정의하려면 다음 명령어를 실행하세요. 사용자 정의 후 `npx prisma migrate dev`를 실행하여 적용합니다.
+## Test
 
 ```bash
-npx prisma migrate dev --create-only
-# 또는
-npm run migrate:dev:create
+# unit tests
+$ npm run test
+
+# e2e tests
+$ npm run test:e2e
+
+# test coverage
+$ npm run test:cov
 ```
 
-데이터베이스 변경 사항에 만족하면 [프로덕션 데이터베이스](https://www.prisma.io/blog/prisma-migrate-preview-b5eno5g08d0b#applying-migrations-in-production-and-other-environments)에 변경 사항을 배포하려면 `prisma migrate deploy`를 사용하여 대기 중인 모든 마이그레이션을 적용합니다. CI/CD 파이프라인에서도 사용할 수 있으며 프롬프트 없이 작동합니다.
+## Support
 
-```bash
-npx prisma migrate deploy
-# 또는
-npm run migrate:deploy
-```
+Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
-### 4. Prisma: Prisma Client JS
+## Stay in touch
 
-[Prisma Client JS](https://www.prisma.io/docs/reference/tools-and-interfaces/prisma-client/api)는 데이터 모델을 기반으로 자동 생성되는 타입-안전한 데이터베이스 클라이언트입니다.
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
-Prisma Client JS를 생성하려면 다음을 실행하세요.
+## License
 
-> **참고**: [schema.prisma](prisma/schema.prisma)를 업데이트할 때마다 Prisma Client JS를 재생성하세요.
-
-```bash
-npx prisma generate
-# 또는
-npm run prisma:generate
-```
-
-### 5. 이 스크립트로 데이터베이스 데이터 씨딩
-
-이 명령어로 스크립트를 실행하세요:
-
-```bash
-npm run seed
-```
-
-### 6. NestJS 서버 시작
-
-개발 모드에서 Nest 서버를 실행하세요:
-
-```bash
-npm run start
-
-# 감시 모드
-npm run start:dev
-```
-
-프로덕션 모드에서 Nest 서버를 실행하세요:
-
-```bash
-npm run start:prod
-```
-
-**[⬆ 맨 위로](#overview)**
-
-
-## GraphQL Playground
-
-NestJS 서버를 위한 GraphQL Playground는 여기에서 사용할 수 있습니다: [GraphQL Playground](http://localhost:3000/graphql)
-
-
-## Rest Api Swagger
-
-[RESTful API](http://localhost:3000/api) 문서는 Swagger로 제공됩니다.
-
+Nest is [MIT licensed](LICENSE).
